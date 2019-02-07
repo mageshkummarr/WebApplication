@@ -5,7 +5,7 @@ class HelloWorld extends Component{
     render(){
         return(
             <div className='HelloWorld'>
-                <h1>Hello World</h1>
+                <h2>Welcome Sittichot</h2>
             </div>
         )
     }

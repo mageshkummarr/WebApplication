@@ -4,45 +4,52 @@ import './HelloWorld.css'
 class HelloWorld extends Component{
     constructor(props){
         super(props);
-        this.main = this.main.bind(this);
-        this.changeState = this.changeState.bind(this);
         this.state = {
             text : '',
             i : 0,
-        }
+            date: new Date()
+        };
     }
-    main(){
-        if(this.state.i%2 === 0){
-            this.setState(function(prevState){
-                return{
-                    text : 'Hello'
-                }
-            });
-        }else{
-            this.setState(function(prevState){
-                return{
-                    text : 'Welcome'
-                }
-            });
-        }
+    componentDidMount(){
+        console.log('componentDidMount is called');       
+        this.timeID = setInterval(
+            () => this.tick(),1000
+        );
+    }
+    componentWillMount(){
+        console.log('componentWillMount is called');
+        // console.log(JSON.parse(this.state));
+    }
+    componentWillUnmount(){
+        console.log('componentWillUnmount is called');
+        clearInterval(this.timeID);
+    }
+    componentWillReceiveProps(nextProps){
+        console.log('componentWillReceiveProps is called');
+        console.log(nextProps);
+    }
+    componentDidCatch(){
+        console.log('componentDidCatch is called');
+    }
+    componentWillUpdate(){
+        console.log('componentWillUpdate is called');
+    }
+    componentDidUpdate(){
+        console.log('componentDidUpdate is called');
+    }
+    tick(){
+        // console.log(this.state.i);
         this.setState(function(prevState){
-            return{
-                i : prevState.i + 1
+            return {
+                // i : prevState.i + 1,
+                date : new Date()
             }
-        })
-    }
-    changeState(paramKey, paramValue){
-        console.log(paramKey + paramValue);
-    }
-    getClock() {
-        return new Date().toLocaleString();    
-        // return "DADWWW";
+        });
     }
     render(){
         return(
             <div className='HelloWorld'>
-                {/* <button onClick={(e) => this.changeState(e, this.state.i+1)}>Click !</button> */}
-                <h2>{this.state.text} Sittichot {this.state.i} Time : {this.getClock()}</h2>
+                <h2>{this.state.text} {this.props.name} <br/> Time : {this.state.date.toLocaleString()}</h2>
             </div>
         )
     }

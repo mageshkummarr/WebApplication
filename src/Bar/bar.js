@@ -14,8 +14,8 @@ export default class Bar extends Component{
 
     }
     componentDidMount(){
-        // this.createBar();
-        // console.log(JSON.stringify(this.state.html));
+        this.createBar();
+        console.log(JSON.stringify(this.state.html));
     }
     toComponent(text){
 
@@ -24,7 +24,7 @@ export default class Bar extends Component{
         console.log('Create Bar');
         this.setState({
             html: <>{this.props.item.map((e)=>(
-                <Route path='/HelloWorld' key={e.key} Component={Home} />
+                <Route path='/' key={e.key} Component={Home} />
                 // <a href={e.html} key={e.key}>{e.text}</a>
             ))}</>
         });
@@ -36,6 +36,7 @@ export default class Bar extends Component{
             <div className='Bar'>
                 <Route exact path='/' component={Home}/>
                 <Route path='/Home' component = {Home1}/>
+                {/* {this.state.html} */}
             </div>
         );
     }

@@ -13,7 +13,7 @@ const Home = () => <h1>Home</h1>
 const Home1 = ()=> <h1>/Home</h1>
 const Browser = () =>(
     <Router>
-        <Bar />
+        <Bar item={obj}/>
     </Router>
 )
 ReactDOM.render(<Browser />, document.getElementById('root'));

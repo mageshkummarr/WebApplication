@@ -12,9 +12,9 @@ class HelloWorld extends Component{
     }
     componentDidMount(){
         console.log('componentDidMount is called');       
-        this.timeID = setInterval(
-            () => this.tick(),1000
-        );
+        // this.timeID = setInterval(
+        //     () => this.tick(),1000
+        // );
     }
     componentWillMount(){
         console.log('componentWillMount is called');
@@ -49,7 +49,7 @@ class HelloWorld extends Component{
     render(){
         return(
             <div className='HelloWorld'>
-                <h2>{this.state.text} {this.props.name} <br/> Time : {this.state.date.toLocaleString()}</h2>
+                {this.props.children}
             </div>
         )
     }

@@ -1,26 +1,22 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import Bar from '../Bar/bar';
+import HelloWorld from '../HelloWorld/HelloWorld'
 class App extends Component {
+  constructor(props){
+    super(props);
+  }
   render() {
+    let obj = [
+      {text: 'PM 2.5' ,html : 'https://www.google.com/', key: 1},
+      {text: 'Gold' ,html : 'https://www.facebook.com/', key: 2},
+  ];
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-            Hello World.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <HelloWorld>
+          <Bar item={obj}></Bar>
+        </HelloWorld>
       </div>
     );
   }

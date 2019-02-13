@@ -36,7 +36,7 @@ export default class Bar extends Component{
             <div className='Bar'>
                 <Route exact path='/' component={Home}/>
                 <Route path='/Home' component = {Home1}/>
-                {/* {this.state.html} */}
+                {this.state.html}
             </div>
         );
     }
